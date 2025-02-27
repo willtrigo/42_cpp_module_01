@@ -6,7 +6,7 @@
 #    By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/08 12:50:58 by dande-je          #+#    #+#              #
-#    Updated: 2025/02/08 13:41:47 by dande-je         ###   ########.fr        #
+#    Updated: 2025/02/27 18:14:09 by dande-je         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,6 @@ RESET                           := \033[0m
 SRCS_DIR                        := src/
 SRCS_MAIN_DIR                   := $(SRCS_DIR)main/
 SRCS_CORE_DIR                   := $(SRCS_DIR)core/
-SRCS_UTILS_DIR                  := $(SRCS_DIR)utils/
 INCS                            := src/
 BIN_DIR                         := bin/
 BUILD_DIR                       := build/
@@ -50,10 +49,9 @@ NAME_OUTPUT                     = zombie
 NAME                            = $(BIN_DIR)$(NAME_OUTPUT)
 
 SRCS_FILES                      += $(addprefix $(SRCS_MAIN_DIR), main.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_CORE_DIR), zombie.cpp \
+SRCS_FILES                      += $(addprefix $(SRCS_CORE_DIR), Zombie.cpp \
 								   newZombie.cpp \
 								   randomChump.cpp)
-SRCS_FILES                      += $(addprefix $(SRCS_UTILS_DIR), TerminalColor.cpp)
 
 OBJS                            += $(SRCS_FILES:%.cpp=$(BUILD_DIR)%.o)
 
