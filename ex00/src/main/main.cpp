@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:31:48 by dande-je          #+#    #+#             */
-/*   Updated: 2025/02/27 18:23:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/02 18:01:33 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,13 @@ int main() {
   heapZombie->announce();
   delete heapZombie;
   randomChump("StackZombie");
-  Zombie heapZombie2;
-  heapZombie2.announce();
-
+  Zombie heapZombieCopyDefault("CopyZombie");
+  Zombie heapZombieCopyConstructor = heapZombieCopyDefault;
+  heapZombieCopyConstructor.announce();
+  Zombie heapZombieCopyAssignment;
+  heapZombieCopyAssignment = heapZombieCopyDefault;
+  heapZombieCopyAssignment.announce();
+  Zombie heapZombieDefault;
+  heapZombieDefault.announce();
   return EXIT_SUCCESS;
 }
