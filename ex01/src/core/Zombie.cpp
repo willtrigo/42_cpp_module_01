@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 19:26:09 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/03 19:31:54 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:29:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ Zombie::Zombie() : m_name("Unnamed Zombie"), m_color(TerminalColor::getInstance(
 
 Zombie::Zombie(std::string name) : m_name(name), m_color(TerminalColor::getInstance()), m_str_color(BLACK), m_bg_color(BG_YELLOW) {}
 
-Zombie::Zombie(const Zombie& other) : m_color(TerminalColor::getInstance()), m_str_color(WHITE), m_bg_color(BG_BLUE) {
-  this->m_name = other.m_name;
-  std::cout << m_color.setColor(BG_BLUE, WHITE, "Copy constructor called for " + this->m_name) << std::endl;
+Zombie::Zombie(const Zombie& other) : m_color(TerminalColor::getInstance()) {
+  *this = other;
+  this->m_bg_color = BG_BLUE;
+  this->m_str_color = WHITE;
+  std::cout << this->m_color.setColor(this->m_bg_color, this->m_str_color, "Copy constructor called for " + this->m_name) << std::endl;
 }
 
 Zombie& Zombie::operator=(const Zombie& other) {
@@ -28,7 +30,7 @@ Zombie& Zombie::operator=(const Zombie& other) {
     this->m_name = other.m_name;
     this->m_bg_color = BG_ORANGE;
     this->m_str_color = BLACK;
-    std::cout << m_color.setColor(BG_ORANGE, BLACK, "Copy assigment operator called for " + this->m_name) << std::endl;
+    std::cout << this->m_color.setColor(this->m_bg_color, this->m_str_color, "Copy assigment operator called for " + this->m_name) << std::endl;
   }
   return *this;
 }
