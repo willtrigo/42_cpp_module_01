@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:07:30 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 22:27:00 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:02:16 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <cctype>
 #include <cstddef>
 #include <iostream>
+
+static std::string toUpper(const std::string& str);
 
 const Harl::Level Harl::levelMap[TOTAL_LEVEL] = {
   {"DEBUG", &Harl::debug},
@@ -32,21 +34,14 @@ Harl::Harl(const Harl& other) : m_color(TerminalColor::getInstance()) {
 }
 
 Harl& Harl::operator=(const Harl& other) {
-  if (this != &other) {}
-  std::cout << "Copy assignment operator called for Harl" << std::endl;
+  if (this != &other) {
+    *this = other;
+    std::cout << "Copy assignment operator called for Harl" << std::endl;
+  }
   return *this;
 }
 
 Harl::~Harl() {}
-
-std::string Harl::harlToUpper(const std::string& str) {
-  std::string new_str(str);
-
-  for (size_t i = 0; i < new_str.length(); ++i) {
-    new_str.at(i) = std::toupper(new_str.at(i));
-  }
-  return new_str;
-}
 
 void Harl::debug(void) {
     std::cout << m_color.setColor(BG_RESET, BLUE, "[ DEBUG ] ") << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
@@ -81,7 +76,8 @@ bool Harl::harlCheckArgs(int argc, char* argv[]) {
 }
 
 void Harl::harlFilter(std::string level) {
-  std::string levelNormalize = harlToUpper(level);
+  std::string levelNormalize = toUpper(level);
+
   for (int i = 0; i < INVALID; ++i) {
     if (this->levelMap[i].levelName == levelNormalize) {
       (this->*levelMap[i].func)();
@@ -89,4 +85,13 @@ void Harl::harlFilter(std::string level) {
     }
   }
   (this->*levelMap[INVALID].func)();
+}
+
+static std::string toUpper(const std::string& str) {
+  std::string new_str(str);
+
+  for (size_t i = 0; i < new_str.length(); ++i) {
+    new_str.at(i) = std::toupper(new_str.at(i));
+  }
+  return new_str;
 }

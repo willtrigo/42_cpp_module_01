@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:07:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 21:59:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 17:00:50 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ class Harl {
   static const Level levelMap[TOTAL_LEVEL];
   const TerminalColor& m_color;
 
-  std::string harlToUpper(const std::string& str);
   void debug(void);
   void info(void);
   void warning(void);
