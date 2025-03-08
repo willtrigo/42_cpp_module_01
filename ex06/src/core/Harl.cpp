@@ -6,12 +6,14 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:07:30 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 21:43:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 22:04:18 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core/Harl.hpp"
 #include "utils/TerminalColor.hpp"
+#include <cctype>
+#include <cstddef>
 #include <iostream>
 
 const Harl::Level Harl::levelMap[TOTAL_LEVEL] = {
@@ -36,6 +38,15 @@ Harl& Harl::operator=(const Harl& other) {
 }
 
 Harl::~Harl() {}
+
+std::string Harl::harlToUpper(const std::string& str) {
+  std::string new_str(str);
+
+  for (size_t i = 0; i < new_str.length(); ++i) {
+    new_str.at(i) = std::toupper(new_str.at(i));
+  }
+  return new_str;
+}
 
 void Harl::debug(void) {
     std::cout << m_color.setColor(BG_RESET, BLUE, "[ DEBUG ] ") << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-special-ketchup burger. I really do!" << std::endl;
@@ -70,20 +81,12 @@ bool Harl::harlCheckArgs(int argc, char* argv[]) {
 }
 
 void Harl::harlFilter(std::string level) {
+  std::string levelNormalize = harlToUpper(level);
   for (int i = 0; i < INVALID; ++i) {
-    if (this->levelMap[i].levelName == level) {
-      complain(level);
-      return;
-    }
-  }
-  complain(this->levelMap[INVALID].levelName);
-}
-
-void Harl::complain(std::string level) {
-  for (int i = 0; i < TOTAL_LEVEL; ++i) {
-    if (this->levelMap[i].levelName == level) {
+    if (this->levelMap[i].levelName == levelNormalize) {
       (this->*levelMap[i].func)();
       return;
     }
   }
+  (this->*levelMap[INVALID].func)();
 }
