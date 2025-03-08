@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:07:30 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 22:04:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 22:27:00 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ const Harl::Level Harl::levelMap[TOTAL_LEVEL] = {
 Harl::Harl() : m_color(TerminalColor::getInstance()) {}
 
 Harl::Harl(const Harl& other) : m_color(TerminalColor::getInstance()) {
-  (void)other;
+  *this = other;
   std::cout << "Copy constructor called for Hald" << std::endl;
 }
 
