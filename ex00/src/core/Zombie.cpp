@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:34:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/02 18:04:04 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 20:08:49 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ Zombie::Zombie() : m_name("Unnamed Zombie"), m_color(TerminalColor::getInstance(
 
 Zombie::Zombie(std::string name) : m_name(name), m_color(TerminalColor::getInstance()), m_str_color(BLACK), m_bg_color(BG_YELLOW) {}
 
-Zombie::Zombie(const Zombie& other) : m_color(TerminalColor::getInstance()), m_str_color(WHITE), m_bg_color(BG_BLUE) {
-  this->m_name = other.m_name;
-  std::cout << m_color.setColor(BG_BLUE, WHITE, "Copy constructor called for " + this->m_name) << std::endl;
+Zombie::Zombie(const Zombie& other) : m_color(TerminalColor::getInstance()) {
+  *this = other;
+  this->m_str_color = WHITE;
+  this->m_bg_color = BG_BLUE;
+  std::cout << this->m_color.setColor(this->m_bg_color, this->m_str_color, "Copy constructor called for " + this->m_name) << std::endl;
 }
 
 Zombie& Zombie::operator=(const Zombie& other) {
