@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:08:18 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 17:59:31 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/07 17:21:45 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ FileProcessor::FileProcessor() {}
 
 FileProcessor::FileProcessor(const FileProcessor& other) {
   (void)other;
-  std::cout << "Copy constructor called" << std::endl;
+  std::cout << "Copy constructor called for FileProcessor" << std::endl;
 }
 
 FileProcessor& FileProcessor::operator=(const FileProcessor& other) {
   if (this != &other) {
-    std::cout << "Copy assigment operator called" << std::endl;
+    std::cout << "Copy assigment operator called for FileProcessor" << std::endl;
   }
   return *this;
 }
