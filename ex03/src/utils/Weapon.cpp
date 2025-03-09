@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 07:13:32 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 11:09:38 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:06:02 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ Weapon::Weapon() : m_type("dagger"), m_color(TerminalColor::getInstance()), m_st
 
 Weapon::Weapon(const std::string type) : m_type(type), m_color(TerminalColor::getInstance()), m_str_color(BLUE), m_bg_color(BG_RESET) {}
 
-Weapon::Weapon(const Weapon& other) : m_type(other.m_type), m_color(TerminalColor::getInstance()), m_str_color(YELLOW), m_bg_color(BG_RESET) {
+Weapon::Weapon(const Weapon& other) : m_type(other.m_type), m_color(TerminalColor::getInstance()) {
+  *this = other;
+  this->m_bg_color = BG_RESET;
+  this->m_str_color = YELLOW;
   std::cout << "Copy constructor called for " << this->m_type << std::endl;
 }
 
