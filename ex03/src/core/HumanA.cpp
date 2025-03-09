@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 07:14:02 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 10:58:35 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:14:08 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ HumanA::HumanA() : m_name("unamed"), m_weapon(*(new Weapon())) {}
 HumanA::HumanA(std::string name, Weapon& weapon) : m_name(name), m_weapon(weapon) {}
 
 HumanA::HumanA(const HumanA& other) : m_name(other.m_name), m_weapon(other.m_weapon) {
+  *this = other;
   std::cout << "Copy constructor called for " << this->m_name << std::endl;
 }
 

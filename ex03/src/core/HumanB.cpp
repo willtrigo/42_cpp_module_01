@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 07:13:50 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 10:58:48 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:14:19 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ HumanB::HumanB() : m_name("unamed"), m_weapon(NULL) {}
 HumanB::HumanB(std::string name) : m_name(name), m_weapon(NULL) {}
 
 HumanB::HumanB(const HumanB& other) : m_name(other.m_name), m_weapon(other.m_weapon) {
+  *this = other;
   std::cout << "Copy constructor called for " << this->m_name << std::endl;
 }
 
