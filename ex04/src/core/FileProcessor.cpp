@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:08:18 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 17:21:45 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:15:51 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 FileProcessor::FileProcessor() {}
 
 FileProcessor::FileProcessor(const FileProcessor& other) {
-  (void)other;
+  *this = other;
   std::cout << "Copy constructor called for FileProcessor" << std::endl;
 }
 

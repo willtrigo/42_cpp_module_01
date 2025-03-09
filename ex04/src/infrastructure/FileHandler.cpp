@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:07:31 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 17:22:07 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/08 21:16:23 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 FileHandler::FileHandler() {}
 
 FileHandler::FileHandler(const FileHandler& other) : filename(other.filename), s1(other.s1), s2(other.s2) {
+  *this = other;
   std::cout << "Copy constructor called for FileHandler" << std::endl;
 }
 
