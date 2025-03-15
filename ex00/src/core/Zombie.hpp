@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:32:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/02 17:45:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:45:11 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Zombie {
   void announce(void);
   void setName(std::string name);
   void setColors(ColorCode bg, ColorCode str);
+
  private:
   std::string m_name;
   const TerminalColor& m_color;
