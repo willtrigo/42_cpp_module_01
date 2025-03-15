@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:34:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/08 20:08:49 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/15 18:55:36 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 #include "utils/TerminalColor.hpp"
 #include <iostream>
 
-Zombie::Zombie() : m_name("Unnamed Zombie"), m_color(TerminalColor::getInstance()), m_str_color(BLACK), m_bg_color(BG_WHITE) {}
+Zombie::Zombie()
+  : m_name("Unnamed Zombie"),
+    m_color(TerminalColor::getInstance()),
+    m_str_color(BLACK),
+    m_bg_color(BG_WHITE) {}
 
-Zombie::Zombie(std::string name) : m_name(name), m_color(TerminalColor::getInstance()), m_str_color(BLACK), m_bg_color(BG_YELLOW) {}
+Zombie::Zombie(std::string name)
+  : m_name(name),
+    m_color(TerminalColor::getInstance()),
+    m_str_color(BLACK),
+    m_bg_color(BG_YELLOW) {}
 
 Zombie::Zombie(const Zombie& other) : m_color(TerminalColor::getInstance()) {
   *this = other;
