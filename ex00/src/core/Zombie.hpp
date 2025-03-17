@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:32:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/15 18:45:11 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/16 23:33:43 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ class Zombie {
   Zombie();
   Zombie(std::string name);
   Zombie(const Zombie& other);
-  Zombie& operator=(const Zombie& other);
   ~Zombie();
+
+  Zombie& operator=(const Zombie& other);
 
   void announce(void);
   void setName(std::string name);
-  void setColors(ColorCode bg, ColorCode str);
+  void setColors(BgColor bg, StrColor str);
 
  private:
   std::string m_name;
   const TerminalColor& m_color;
-  ColorCode m_str_color;
-  ColorCode m_bg_color;
+  StrColor m_strColor;
+  BgColor m_bgColor;
+
+  void log(const std::string& str) const;
 };
 
 Zombie* newZombie(std::string name);
