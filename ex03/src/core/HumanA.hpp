@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 07:13:57 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 10:59:18 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 00:51:49 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ class HumanA {
   HumanA();
   HumanA(std::string name, Weapon& weapon);
   HumanA(const HumanA& other);
-  HumanA& operator=(const HumanA& other);
   ~HumanA();
+
+  HumanA& operator=(const HumanA& other);
 
   void setWeapon(Weapon& weapon);
   void attack();
+
  private:
   std::string m_name;
   Weapon& m_weapon;

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 07:13:50 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/08 21:14:19 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 00:53:14 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,22 @@
 #include "utils/Weapon.hpp"
 #include <iostream>
 
-HumanB::HumanB() : m_name("unamed"), m_weapon(NULL) {}
+HumanB::HumanB()
+  : m_name("unamed"),
+    m_weapon(NULL) {}
 
-HumanB::HumanB(std::string name) : m_name(name), m_weapon(NULL) {}
+HumanB::HumanB(std::string name)
+  : m_name(name),
+    m_weapon(NULL) {}
 
-HumanB::HumanB(const HumanB& other) : m_name(other.m_name), m_weapon(other.m_weapon) {
+HumanB::HumanB(const HumanB& other)
+  : m_name(other.m_name),
+    m_weapon(other.m_weapon) {
   *this = other;
   std::cout << "Copy constructor called for " << this->m_name << std::endl;
 }
+
+HumanB::~HumanB() {}
 
 HumanB& HumanB::operator=(const HumanB& other) {
   if (this != &other) {
@@ -31,8 +39,6 @@ HumanB& HumanB::operator=(const HumanB& other) {
   }
   return *this;
 }
-
-HumanB::~HumanB() {}
 
 void HumanB::setWeapon(Weapon& weapon) {
   m_weapon = &weapon;
