@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/08 13:32:11 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/16 23:33:43 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 00:34:22 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class Zombie {
   Zombie& operator=(const Zombie& other);
 
   void announce(void);
-  void setName(std::string name);
   void setColors(BgColor bg, StrColor str);
 
  private:

@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 19:55:52 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/17 00:22:46 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 00:34:29 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 
 void Zombie::announce(void) {
   log(this->m_name + ": BraiiiiiiinnnzzzZ...");
-}
-
-void Zombie::setName(std::string name) {
-  this->m_name = name;
 }
 
 void Zombie::setColors(BgColor bg, StrColor str) {
