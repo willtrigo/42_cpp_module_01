@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/03 19:28:23 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 01:06:09 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 00:38:03 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 Zombie* zombieHorde(int N, std::string name) {
   Zombie* new_horde = new Zombie[N];
+
   for (int i = 0; i < N; ++i) {
     std::ostringstream new_name;
     new_name << name << " " << (i + 1);
