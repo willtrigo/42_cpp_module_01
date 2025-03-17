@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 00:07:47 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/07 21:15:44 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 01:36:20 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,20 @@ enum LevelEnum {
   TOTAL_LEVEL
 };
 
+enum Arguments {
+  PROGRAM_NAME,
+  LEVEL,
+  TOTAL_ARGS
+};
+
 class Harl {
  private:
-  enum Arguments {
-    PROGRAM_NAME,
-    LEVEL,
-    TOTAL_ARGS
-  };
   typedef void (Harl::* harlFunc)();
   struct Level {
     std::string levelName;
     harlFunc func;
   };
+
   static const Level levelMap[TOTAL_LEVEL];
   const TerminalColor& m_color;
 
@@ -43,11 +45,13 @@ class Harl {
   void info(void);
   void warning(void);
   void error(void);
+
  public:
   Harl();
   Harl(const Harl& other);
-  Harl& operator=(const Harl& other);
   ~Harl();
+
+  Harl& operator=(const Harl&);
 
   void complain(std::string level);
   bool harlCheckArgs(int argc, char* argv[]);
