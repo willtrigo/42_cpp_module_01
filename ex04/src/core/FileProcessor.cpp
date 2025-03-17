@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:08:18 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/08 21:15:51 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 01:11:52 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ FileProcessor::FileProcessor(const FileProcessor& other) {
   std::cout << "Copy constructor called for FileProcessor" << std::endl;
 }
 
+FileProcessor::~FileProcessor() {}
+
 FileProcessor& FileProcessor::operator=(const FileProcessor& other) {
   if (this != &other) {
     std::cout << "Copy assigment operator called for FileProcessor" << std::endl;
@@ -28,11 +30,10 @@ FileProcessor& FileProcessor::operator=(const FileProcessor& other) {
   return *this;
 }
 
-FileProcessor::~FileProcessor() {}
-
 bool FileProcessor::run(int argc, char* argv[]) {
   try {
     FileHandler file;
+
     file.validateArgs(argc, argv);
     std::string content = file.readFile(file.filename);
     std::string newContent = replaceOccurrences(content, file.s1, file.s2);
@@ -46,7 +47,9 @@ bool FileProcessor::run(int argc, char* argv[]) {
   return true;
 }
 
-std::string FileProcessor::replaceOccurrences(const std::string& content, const std::string& s1, const std::string& s2) {
+std::string FileProcessor::replaceOccurrences(const std::string& content,
+                                              const std::string& s1,
+                                              const std::string& s2) {
   std::string newContent = content;
   size_t i = 0;
 

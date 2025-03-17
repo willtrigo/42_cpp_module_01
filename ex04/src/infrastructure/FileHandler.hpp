@@ -6,7 +6,7 @@
 /*   By: dande-je <dande-je@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 12:07:50 by dande-je          #+#    #+#             */
-/*   Updated: 2025/03/05 17:32:12 by dande-je         ###   ########.fr       */
+/*   Updated: 2025/03/17 01:12:34 by dande-je         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,12 @@ class FileHandler {
   std::string filename;
   std::string s1;
   std::string s2;
+
   FileHandler();
   FileHandler(const FileHandler& other);
-  FileHandler& operator=(const FileHandler& other);
   ~FileHandler();
+
+  FileHandler& operator=(const FileHandler& other);
 
   void validateArgs(int argc, char* argv[]);
   std::string readFile(const std::string& filename) const;
